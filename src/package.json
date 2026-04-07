@@ -1,0 +1,16 @@
+{
+  "name": "functions-quickstart-javascript-azd-service-bus",
+  "version": "1.0.0",
+  "description": "JavaScript Azure Functions Service Bus queue trigger quickstart using Node.js v4 programming model",
+  "main": "index.js",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.11.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
