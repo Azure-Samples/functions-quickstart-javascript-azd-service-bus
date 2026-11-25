@@ -68,6 +68,6 @@ Write-Host ""
 Write-Host "Service Bus Namespace: $ServiceBusNamespace" -ForegroundColor Cyan
 Write-Host "Service Bus Queue: $ServiceBusQueueName" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Running locally and sending test messages from your machine require VNET_ENABLED=false." -ForegroundColor Yellow
+Write-Host "With VNet enabled, local use requires private endpoint connectivity and DNS." -ForegroundColor Yellow
 Write-Host "You can now run the function locally with 'cd src && func start'" -ForegroundColor Green
 Write-Host "Send test messages with './send-message.ps1'" -ForegroundColor Green
