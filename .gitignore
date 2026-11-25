@@ -15,6 +15,14 @@ local.settings.json
 send-message.sh
 send-message.ps1
 
+# azd local environment state
+.azure/
+
+# Bicep compiled ARM templates (e.g. infra/main.json from bicep build)
+infra/**/*.json
+!infra/main.parameters.json
+!infra/abbreviations.json
+
 # Azurite
 __blobstorage__/
 __queuestorage__/
