@@ -74,16 +74,19 @@ You can initialize a project from this `azd` template in one of these ways:
     | _Environment name_ | An environment that's used to maintain a unique deployment context for your app. You won't be prompted if you created the local project using `azd init`. |
     | _Azure subscription_ | Subscription in which your resources are created. |
     | _Azure location_ | Azure region in which to create the resource group that contains the new Azure resources. Only regions that currently support the Flex Consumption plan are shown. |
-    | _VNET_ENABLED_ | Whether to deploy with VNet integration and private endpoints. Enter `false` unless you need private networking. |
+    | _vnetEnabled_ | Whether to deploy with VNet integration and private endpoints. Select `False` unless you need private networking. |
 
     This creates all necessary Azure resources including:
     * Azure Service Bus namespace and queue
     * Azure Function App (Flex Consumption)
     * Application Insights for monitoring
     * Storage account for function app
-    * Virtual network with private endpoints (if `VNET_ENABLED=true`)
+    * Virtual network with private endpoints (if `vnetEnabled` is `True`)
 
-    After provisioning completes, a post-provision script automatically generates `src/local.settings.json` with the correct Service Bus connection settings:
+    > [!NOTE]
+    > When `vnetEnabled` is `True`, Service Bus has no public network access. Running the function locally or sending messages requires connectivity and DNS resolution to the Service Bus private endpoint.
+
+    After provisioning completes, a post-provision script automatically generates `src/local.settings.json` with the correct Service Bus connection settings. If the file already exists, it isn't overwritten. If its settings differ, the script shows the values to use; if it contains invalid JSON, fix it and rerun `azd provision`. For example:
 
     ```json
     {
